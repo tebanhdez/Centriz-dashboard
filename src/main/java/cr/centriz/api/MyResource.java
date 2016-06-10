@@ -1,4 +1,8 @@
-package cr.centriz;
+package cr.centriz.api;
+
+import cr.centriz.utils.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,6 +24,7 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         return "Hello, Heroku!";
     }
 }

@@ -1,4 +1,4 @@
-package cr.centriz;
+package cr.centriz.api;
 
 import javax.ws.rs.core.Application;
 
@@ -8,7 +8,7 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-import cr.centriz.MyResource;
+import cr.centriz.api.MyResource;
 
 public class MyResourceTest extends JerseyTest {
 
