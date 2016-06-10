@@ -1,10 +1,14 @@
 package cr.centriz.entities;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,26 +16,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "User", schema="public")
 @XmlRootElement
 public class User {
-    //full name of a person, street name, zip code and city.
+    
     public User(){
     }
 
-    public User(int id){
-        setId(id);
+    public User(int userId){
+        setId(userId);
     }
-
+  
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "user_id")
+    private int userId;
     public int getId() {
-        return id;
+        return userId;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int userId) {
+        this.userId = userId;
     }
 
-    @Column(name = "person_name")
+    @Column(name = "full_name")
     private String fullName;
     public String getFullName() {
         return fullName;
@@ -57,14 +61,35 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "creation_date")
+    private Date creationDate;
+    
+    public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
 
-    @Override
+	@ManyToOne
+	@JoinColumn(name="user_role_id")
+	private UserRole userRole;
+    public UserRole getUserRoleId() {
+		return userRole;
+	}
+	public void setUserRoleId(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         User user = (User) o;
-        if (id != user.id) return false;
+        if (userId != user.userId) return false;
         return true;
     }
 }
