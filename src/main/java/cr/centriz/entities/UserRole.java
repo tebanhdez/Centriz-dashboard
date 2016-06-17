@@ -51,15 +51,6 @@ public class UserRole {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    @OneToMany(mappedBy="user_role")
-	private Set<User> user;
-	public Set<User> getEmployees() {
-		return user;
-	}
-	public void setEmployees(Set<User> user) {
-		this.user = user;
-	}
 
 	@Override
     public boolean equals(Object o) {

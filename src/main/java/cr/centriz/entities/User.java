@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -62,8 +62,8 @@ public class User {
         this.password = password;
     }
     
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "creation_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "creation_date", updatable = false)
     private Date creationDate;
     
     public Date getCreationDate() {
@@ -71,16 +71,6 @@ public class User {
 	}
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
-	}
-
-	@ManyToOne
-	@JoinColumn(name="user_role_id")
-	private UserRole userRole;
-    public UserRole getUserRoleId() {
-		return userRole;
-	}
-	public void setUserRoleId(UserRole userRole) {
-		this.userRole = userRole;
 	}
 
 	@Override
