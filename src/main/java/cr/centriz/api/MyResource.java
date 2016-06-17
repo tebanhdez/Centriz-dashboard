@@ -1,13 +1,13 @@
 package cr.centriz.api;
 
-import cr.centriz.utils.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import org.hibernate.Session;
+
+import cr.centriz.utils.HibernateUtil;
 
 /**
  * Root resource (exposed at "myresource" path)
