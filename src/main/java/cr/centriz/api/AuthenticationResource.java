@@ -46,7 +46,7 @@ public class AuthenticationResource {
         
         AuthenticationService authService = new AuthenticationService();
         User user = authService.findUserByEmail(credentials.getEmail());
-        
+        LOGGER.info("Filter test");
         if (user == null)
             return Response.status(Status.UNAUTHORIZED).entity(javax.ws.rs.client.Entity.json("{\"Error \": \"User not found \"}")).build();
         

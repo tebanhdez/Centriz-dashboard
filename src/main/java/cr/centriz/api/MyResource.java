@@ -1,13 +1,14 @@
 package cr.centriz.api;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.hibernate.Session;
-
-import cr.centriz.utils.HibernateUtil;
+import cr.centriz.entities.UserRole;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -23,7 +24,13 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    	EntityManager em = emf.createEntityManager();
+    	em.getTransaction().begin();
+    	UserRole userRole = new UserRole();
+    	userRole.setName("ADMIN");
+    	em.persist(userRole);
+    	em.getTransaction().commit();
         return "Hello, Heroku!";
     }
 }

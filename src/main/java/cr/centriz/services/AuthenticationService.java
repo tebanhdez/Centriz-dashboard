@@ -15,7 +15,7 @@ import cr.centriz.entities.User;
 
 public class AuthenticationService {
 	
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("jcg-JPA");
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
 	EntityManager em = emf.createEntityManager();
 	
     public boolean authenticate(String authCredentials) {
@@ -53,7 +53,7 @@ public class AuthenticationService {
 
     public User findUserByEmail(final String email) {
     	em.getTransaction().begin();
-    	User userObject = (User) em.createQuery("select email from User as u where u.email = ?1")
+    	User userObject = (User) em.createQuery("select u from User u where u.email = '?1'")
 			    .setParameter(1, email).getSingleResult();
     	em.getTransaction().commit();
       return userObject;
