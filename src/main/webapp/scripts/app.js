@@ -19,15 +19,16 @@ angular
     'ngTouch'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/dashboard"); //$urlRouterProvider.otherwise("/login");  por default a login
     $stateProvider
-      .state('centriz', {
-        url: '/',
-        templateUrl: 'views/main.html'
-      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
+        //controller: 'LoginCtrl'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'views/dashboard.html',
         //controller: 'LoginCtrl'
       })
   });

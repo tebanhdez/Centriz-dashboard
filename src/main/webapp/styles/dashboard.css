@@ -1,0 +1,23 @@
+
+.main-header{
+	background-color: #111144;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.navbar{
+	background-color: #111144;
+}
+.nav.navbar-nav.navbar-right{
+	float: right;
+}
+.col-md-3 {
+    padding: 0;
+    background-color: red;
+}
+.col-md-12.col-md-offset-3{
+	background-color: green;
+}
+.navigation{
+	display: block;
+    width: 60px;
+}
