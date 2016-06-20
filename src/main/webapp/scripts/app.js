@@ -8,26 +8,26 @@
  *
  * Main module of the application.
  */
+  // declare modules
 angular
   .module('centrizApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/login");
+    $stateProvider
+      .state('centriz', {
+        url: '/',
+        templateUrl: 'views/main.html'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        //controller: 'LoginCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
   });
