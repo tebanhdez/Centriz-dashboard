@@ -53,7 +53,7 @@ public class AuthenticationService {
 
     public User findUserByEmail(final String email) {
     	em.getTransaction().begin();
-    	User userObject = (User) em.createQuery("select u from User u where u.email = '?1'")
+    	User userObject = (User) em.createQuery("select u from User u where u.email = ?1")
 			    .setParameter(1, email).getSingleResult();
     	em.getTransaction().commit();
       return userObject;

@@ -37,7 +37,7 @@ public class User {
         this.id = id;
     }
 
-    @Column(name = "person_name")
+    @Column(name = "person_name", nullable=false)
     private String fullName;
     public String getFullName() {
         return fullName;
@@ -46,7 +46,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    @Column(name = "email")
+    @Column(name = "email", nullable=false)
     private String email;
     public String getEmail() {
         return email;
@@ -55,7 +55,7 @@ public class User {
         this.email = email;
     }
 
-    @Column(name = "password")
+    @Column(name = "password", nullable=false)
     private String password;
     public String getPassword() {
         return password;
@@ -64,8 +64,7 @@ public class User {
         this.password = password;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "creation_date", updatable = false)
+    @Column(name = "creation_date", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date creationDate;
     
     public Date getCreationDate() {

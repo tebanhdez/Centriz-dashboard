@@ -34,7 +34,7 @@ public class UserRole {
         this.userRoleId = userRoleId;
     }
 
-    @Column(name = "name")
+    @Column(name = "name", nullable=false)
     private String name;
     public String getName() {
 		return name;

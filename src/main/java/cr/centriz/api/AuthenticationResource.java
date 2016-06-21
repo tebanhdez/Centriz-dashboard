@@ -42,7 +42,7 @@ public class AuthenticationResource {
     @Path("/login")
     public Response authenticate(LoginRequest credentials) {
 
-        String response = "{\"RoleIdentifier\": \"%s\", \"status\":\"%s\", \"company\": %s}";
+        String response = "{\"RoleIdentifier\": \"%s\", \"status\":\"%s\"}";
         
         AuthenticationService authService = new AuthenticationService();
         User user = authService.findUserByEmail(credentials.getEmail());
@@ -55,19 +55,19 @@ public class AuthenticationResource {
             return Response.status(Status.NO_CONTENT).entity(javax.ws.rs.client.Entity.json("{\"Error \": \"UserRole not found \"}")).build();
         switch (userRole.getName()) {
 		    case "ADMIN":
-		        response = String.format(response, user.getRole().getName(), "OK", "");
+		        response = String.format(response, user.getRole().getName(), "OK");
 		        break;
 		    case "WRITE":
-		        response = String.format(response, user.getRole().getName(), "OK", "");
+		        response = String.format(response, user.getRole().getName(), "OK");
 		        break;
 		    case "READ":
-		        response = String.format(response, user.getRole().getName(), "OK", "");
+		        response = String.format(response, user.getRole().getName(), "OK");
 		        break;
 		    default:
-		        response = String.format(response, "", "OK", "");
+		        response = String.format(response, "", "OK");
 		        break;
 		    }
-		response = String.format(response, user.getRole().getName(), "OK", "");
+		response = String.format(response, user.getRole().getName(), "OK");
         return Response.status(200).entity(response).build();
     }
 }
