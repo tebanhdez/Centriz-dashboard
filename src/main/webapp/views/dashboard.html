@@ -1,50 +1,87 @@
-<div class="dashboard">
-  <header class="main-header">
-		<div class="navbar-header">
-      <a class="navbar-brand" href="#"><strong>Centriz</strong>Dashboard</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#">Administracion</a></li>
-          <li><a href="#">BSC</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">"nombre usr" <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Cerrar sesi&oacuten</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-  </header>
-  <body>
-	<div class="row">
-	  <div class="col-md-12">
-	    <div class="col-md-3">
-	    		<ul>
-	    		 <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="false" aria-expanded="false">"Marcas" <span class="caret"></span></a>
-	            <ul class="dropdown-menu">
-	              <li><a href="#">ejm 1</a></li>
-	              <li><a href="#">ejm 2</a></li>
-	            </ul>
-          	</li>
-					</ul> 
-					<ul>
-	    		 <li class="dropdown">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">"Zonas" <span class="caret"></span></a>
-	            <ul class="dropdown-menu">
-	              <li><a href="#">ejm 1</a></li>
-	              <li><a href="#">ejm 2</a></li>
-	            </ul>
-          	</li>
-					</ul> 
-	    </div>
-	    <div class="col-md-offset-3">
-					<p> area de trabajo </p>	
-	    </div>
-	  </div>
-	</div>	
-  </body>
+
+  <div class="hold-transition skin-blue sidebar-mini">
+    <header class="main-header">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>Centriz</b></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Centriz</b>Dashboard</span>
+      </a>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">user name</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- The user image in the menu -->
+                <li class="user-header">
+                  <p>
+                    user - Centriz
+                    <small>Member since 2016</small>
+                  </p>
+                </li>
+                <!-- Menu  -->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <div class="user-panel">
+          <ul class="sidebar-menu">
+            <li class="header">HEADER</li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-car" aria-hidden="true"></i><span>Marcas</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#">Budget</a></li>
+                <li><a href="#">Apex</a></li>
+                <li><a href="#">0 Stress</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-map" aria-hidden="true"></i><span>Zonas</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="#">zona1</a></li>
+                <li><a href="#">zona2</a></li>
+                <li><a href="#">...</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    </div>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+    </div>
+  </div>
+
