@@ -3,7 +3,7 @@ package cr.centriz.entities;
 public enum DefaultUserRole {
     ADMIN   (10, "ADMIN", "Administrator user role, all privileges"),
     READ    (11, "READ", "Read user role, only read privileges"),
-    WRITE   (13, "WRITE", "Write user role, read and write privileges");
+    WRITE   (12, "WRITE", "Write user role, read and write privileges");
 
     private final int id;
     private final String name;
