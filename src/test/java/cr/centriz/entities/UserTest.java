@@ -13,39 +13,40 @@ public class UserTest {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
 	EntityManager em = emf.createEntityManager();
-    User adminUser = new User();
-    UserRole adminUserRole = new UserRole();
-    
-    @Before
-    public void createTestUser(){
+	User adminUser = new User();
+	UserRole adminUserRole = new UserRole();
 
-        adminUserRole.setName(DefaultUserRole.ADMIN.getName());
-        adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
+	@Before
+	public void createTestUser() {
 
-        adminUser.setFullName("Test user");
-        adminUser.setEmail("test@centriz.cr");
-        adminUser.setPassword("centriz");
-        adminUser.setRole(adminUserRole);
-        
-        em.getTransaction().begin();
-    	em.persist(adminUserRole);
-    	em.persist(adminUser);
-    	em.getTransaction().commit();
-    }
+		adminUserRole.setName(DefaultUserRole.ADMIN.getName());
+		adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
 
-    @Test
-    public void testCreateCompanyAdminUser() {
-    	Assert.assertNotNull("Admin user role not found", adminUserRole);
-    	Assert.assertNotNull("Admin user not found", adminUser);
+		adminUser.setFullName("Test user");
+		adminUser.setEmail("test@centriz.cr");
+		adminUser.setPassword("centriz");
+		adminUser.setRole(adminUserRole);
 
-        Assert.assertTrue("Admin user role invalid", adminUser.getRole().getName().compareToIgnoreCase(DefaultUserRole.ADMIN.getName()) == 0);
-    }
+		em.getTransaction().begin();
+		em.persist(adminUserRole);
+		em.persist(adminUser);
+		em.getTransaction().commit();
+	}
 
-    @After
-    public void deleteTestUsers(){
-    	em.getTransaction().begin();
-        em.remove(adminUser);
-        em.remove(adminUserRole);
-        em.getTransaction().commit();
-    }
+	@Test
+	public void testCreateCompanyAdminUser() {
+		Assert.assertNotNull("Admin user role not found", adminUserRole);
+		Assert.assertNotNull("Admin user not found", adminUser);
+
+		Assert.assertTrue("Admin user role invalid",
+				adminUser.getRole().getName().compareToIgnoreCase(DefaultUserRole.ADMIN.getName()) == 0);
+	}
+
+	@After
+	public void deleteTestUsers() {
+		em.getTransaction().begin();
+		em.remove(adminUser);
+		em.remove(adminUserRole);
+		em.getTransaction().commit();
+	}
 }
