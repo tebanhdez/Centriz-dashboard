@@ -28,5 +28,11 @@ angular.module('partials')
     restrict: 'E',
     templateUrl: "views/partials/work-area.html"
   }
-});
+})
 
+.directive('indicador', function() {
+  return {
+    restrict: 'E',
+    templateUrl: "views/partials/KPI.html"
+  }
+});

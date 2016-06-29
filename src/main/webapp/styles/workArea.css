@@ -1,0 +1,21 @@
+.work{
+	padding-top: 3em;
+}
+.fondo{
+	background-color: blue;
+}
+
+.without-padding{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.tam{
+	height: 6em;
+}
+.tam2{
+	height: 3em;
+}
+.tam0{
+	height: 1.5em;
+}
