@@ -40,16 +40,13 @@ public class AuthenticationResourceTest extends JerseyTest{
     
     @Before
     public void createTestUser(){
-
-        adminUserRole.setName(DefaultUserRole.ADMIN.getName());
-        adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
         
         adminUserRole.setName(DefaultUserRole.ADMIN.getName());
         adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
 
         adminUser.setFullName("Test user");
-        adminUser.setEmail("test2@test.cr");
-        adminUser.setPassword("test");
+        adminUser.setEmail("test@centriz.cr");
+        adminUser.setPassword("centriz");
         adminUser.setRole(adminUserRole);
         
         em.getTransaction().begin();
@@ -80,10 +77,9 @@ public class AuthenticationResourceTest extends JerseyTest{
 
     @After
     public void deleteTestUsers(){
-    	em.getTransaction().begin();
         em.remove(adminUser);
         em.remove(adminUserRole);
-        em.getTransaction().commit();
+    	
     }
 }
 

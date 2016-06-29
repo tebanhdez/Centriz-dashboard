@@ -43,7 +43,6 @@ public class AuthenticationResource {
     public Response authenticate(LoginRequest credentials) {
 
         String response = "{\"RoleIdentifier\": \"%s\", \"status\":\"%s\"}";
-        
         AuthenticationService authService = new AuthenticationService();
         User user = authService.findUserByEmail(credentials.getEmail());
         LOGGER.info("Filter test");

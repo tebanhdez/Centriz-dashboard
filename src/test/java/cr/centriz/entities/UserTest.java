@@ -1,12 +1,13 @@
 package cr.centriz.entities;
 
-import java.util.UUID;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class UserTest {
 
@@ -20,13 +21,10 @@ public class UserTest {
 
         adminUserRole.setName(DefaultUserRole.ADMIN.getName());
         adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
-        
-        adminUserRole.setName(DefaultUserRole.ADMIN.getName());
-        adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
 
         adminUser.setFullName("Test user");
-        adminUser.setEmail("test@test.cr");
-        adminUser.setPassword("test");
+        adminUser.setEmail("test@centriz.cr");
+        adminUser.setPassword("centriz");
         adminUser.setRole(adminUserRole);
         
         em.getTransaction().begin();
