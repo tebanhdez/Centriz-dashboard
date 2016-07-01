@@ -13,12 +13,10 @@
 	background-color: #006B78;
 	margin-top: 1.5em;
 }
-
 .without-padding{
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
-
 .tam2{
 	height: 6em;
 }
@@ -53,4 +51,7 @@
 }
 .row-dim{
 	margin-left: -2.5em !important;
+}
+.size-table{
+	margin-bottom: -10px;
 }
