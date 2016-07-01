@@ -1,15 +1,15 @@
-.financiera{
+.financial{
 	background-color: #3B7CB1;
 }
-.clientes{
+.customers{
 	background-color: #C80096;
 	margin-top: 1.5em;
 }
-.procesos{
+.process{
 	background-color: #F78427;
 	margin-top: 1.5em;
 }
-.crecimiento{
+.increase{
 	background-color: #006B78;
 	margin-top: 1.5em;
 }
@@ -17,16 +17,7 @@
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
-.tam2{
-	height: 6em;
-}
-.tam1{
-	height: 3em;
-	text-align: block;
-}
-.tam0{
-	height: 1.5em;
-}
+
 .white-bg{
 	background-color: #ffffff !important;
 	min-height: 2em !important;
