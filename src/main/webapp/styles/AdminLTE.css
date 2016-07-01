@@ -324,7 +324,6 @@ a:focus {
 .content-header > .breadcrumb {
   float: right;
   background: transparent;
-  margin-bottom: 0;
   font-size: 12px;
   padding: 7px 5px;
   position: absolute;
