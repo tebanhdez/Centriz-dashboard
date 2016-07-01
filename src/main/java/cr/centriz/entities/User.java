@@ -12,13 +12,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "User", schema="public")
 @XmlRootElement
 public class User {
-    //full name of a person, street name, zip code and city.
+
     public User(){
     }
 

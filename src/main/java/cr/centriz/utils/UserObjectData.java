@@ -1,6 +1,6 @@
 package cr.centriz.utils;
 
-public class UserRequest {
+public class UserObjectData {
 
     private String email;
     private String password;
