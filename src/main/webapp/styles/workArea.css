@@ -1,8 +1,17 @@
-.work{
-	padding-top: 3em;
+.financiera{
+	background-color: #3B7CB1;
 }
-.fondo{
-	background-color: blue;
+.clientes{
+	background-color: #C80096;
+	margin-top: 1.5em;
+}
+.procesos{
+	background-color: #F78427;
+	margin-top: 1.5em;
+}
+.crecimiento{
+	background-color: #006B78;
+	margin-top: 1.5em;
 }
 
 .without-padding{
@@ -15,7 +24,33 @@
 }
 .tam1{
 	height: 3em;
+	text-align: block;
 }
 .tam0{
 	height: 1.5em;
+}
+.white-bg{
+	background-color: #ffffff !important;
+	min-height: 2em !important;
+}
+
+.center{
+	text-align: center;
+}
+.dimension {
+	font-size: 0.7em;
+	color: #ffffff;
+}
+.dim-number{
+	font-size: 3em;
+	color: #000000;
+	margin-top: -0.4em;
+
+}
+.dim-name{
+	font-size: 2em;
+	color: #ffffff;
+}
+.row-dim{
+	margin-left: -2.5em !important;
 }

@@ -144,12 +144,9 @@ body.hold-transition .main-header .logo {
 /* Content */
 .content {
   min-height: 250px;
-  /* padding: 15px; */
   margin-right: auto;
   margin-left: auto;
-  /* padding-left: 15px;
-  padding-right: 15px; */
-  background-color: red;
+
 }
 /* H1 - H6 font */
 h1,
@@ -423,6 +420,7 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 810;
+  position: fixed;
   -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -1526,14 +1524,7 @@ a:focus {
  * --------------
  */
 .box {
-  /*position: relative;
-  border-radius: 3px;*/
-  background: #ffffff;
-  /*border-top: 3px solid #d2d6de; */
-  margin-bottom: 20px;
-  /*width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  margin-top: 2em;*/
+  background: transparent;
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
