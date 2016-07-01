@@ -20,7 +20,7 @@ angular.module('centrizApp', [
     'partials'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/dashboard"); //$urlRouterProvider.otherwise("/login");  por default a login
+    $urlRouterProvider.otherwise("/login"); //$urlRouterProvider.otherwise("/login");  por default a login
     $stateProvider
       .state('login', {
         url: '/login',
