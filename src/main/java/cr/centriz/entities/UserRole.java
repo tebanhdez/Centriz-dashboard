@@ -12,47 +12,53 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "UserRole", schema="public")
+@Table(name = "UserRole", schema = "public")
 @XmlRootElement
 public class UserRole {
-    
-    public UserRole(){
+
+    public UserRole() {
     }
 
-    public UserRole(int userRoleId){
+    public UserRole(int userRoleId) {
         setId(userRoleId);
     }
-  
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_role_id")
     private int userRoleId;
+
     public int getUserRoleId() {
         return userRoleId;
     }
+
     public void setId(int userRoleId) {
         this.userRoleId = userRoleId;
     }
 
-    @Column(name = "name", nullable=false)
+    @Column(name = "name", nullable = false)
     private String name;
-    public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 
-	@Column(name = "description")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "description")
     private String description;
+
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @OneToMany(mappedBy="role")
+    @OneToMany(mappedBy = "role")
     private Set<User> users;
 
     public Set<User> getUsers() {
@@ -65,11 +71,14 @@ public class UserRole {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         UserRole userRole = (UserRole) o;
-        if (userRoleId != userRole.userRoleId) return false;
+        if (userRoleId != userRole.userRoleId)
+            return false;
         return true;
     }
 }

@@ -35,14 +35,14 @@ public class UserService {
         }
         return Response.ok("{\"msg \": \"User created correctly\"}", MediaType.APPLICATION_JSON).build();
     }
-    
+
     private User getUserById(int id) {
         em.getTransaction().begin();
         User user = em.find(User.class, id);
         em.getTransaction().commit();
         return user;
     }
-    
+
     public UserObjectData getSimplifiedUserById(int id) throws NoContentException {
         User user = getUserById(id);
         if (user == null) {
@@ -56,7 +56,7 @@ public class UserService {
         userObjectData.setUserRoleId(user.getRole().getUserRoleId());
         return userObjectData;
     }
-    
+
     public Response updateUser(UserObjectData userObjectData) {
         User user = new User();
         user.setEmail(userObjectData.getEmail());

@@ -27,13 +27,13 @@ public class AuthenticationResource {
 
     private static Properties properties = null;
 
-    static{
+    static {
         properties = new Properties();
         try {
-                properties.load(ResourceManager.getResourceAsInputStream("centriz.properties"));
-            } catch (IOException exception) {
-                LOGGER.error("Error loading properties file", exception);
-            }
+            properties.load(ResourceManager.getResourceAsInputStream("centriz.properties"));
+        } catch (IOException exception) {
+            LOGGER.error("Error loading properties file", exception);
+        }
     }
 
     @POST
@@ -47,26 +47,28 @@ public class AuthenticationResource {
         User user = authService.findUserByEmail(credentials.getEmail());
         LOGGER.info("Filter test");
         if (user == null)
-            return Response.status(Status.UNAUTHORIZED).entity(javax.ws.rs.client.Entity.json("{\"Error \": \"User not found \"}")).build();
-        
+            return Response.status(Status.UNAUTHORIZED)
+                    .entity(javax.ws.rs.client.Entity.json("{\"Error \": \"User not found \"}")).build();
+
         UserRole userRole = user.getRole();
-        if(userRole == null)
-            return Response.status(Status.NO_CONTENT).entity(javax.ws.rs.client.Entity.json("{\"Error \": \"UserRole not found \"}")).build();
+        if (userRole == null)
+            return Response.status(Status.NO_CONTENT)
+                    .entity(javax.ws.rs.client.Entity.json("{\"Error \": \"UserRole not found \"}")).build();
         switch (userRole.getName()) {
-		    case "ADMIN":
-		        response = String.format(response, user.getRole().getName(), "OK");
-		        break;
-		    case "WRITE":
-		        response = String.format(response, user.getRole().getName(), "OK");
-		        break;
-		    case "READ":
-		        response = String.format(response, user.getRole().getName(), "OK");
-		        break;
-		    default:
-		        response = String.format(response, "", "OK");
-		        break;
-		    }
-		response = String.format(response, user.getRole().getName(), "OK");
+            case "ADMIN":
+                response = String.format(response, user.getRole().getName(), "OK");
+                break;
+            case "WRITE":
+                response = String.format(response, user.getRole().getName(), "OK");
+                break;
+            case "READ":
+                response = String.format(response, user.getRole().getName(), "OK");
+                break;
+            default:
+                response = String.format(response, "", "OK");
+                break;
+        }
+        response = String.format(response, user.getRole().getName(), "OK");
         return Response.status(200).entity(response).build();
     }
 }

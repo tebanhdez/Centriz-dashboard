@@ -14,17 +14,16 @@ import com.google.common.io.BaseEncoding;
 import cr.centriz.entities.User;
 
 public class AuthenticationService {
-	
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-	EntityManager em = emf.createEntityManager();
-	
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
+
     public boolean authenticate(String authCredentials) {
 
         if (null == authCredentials)
             return false;
 
-        final String encodedUserPassword = authCredentials.replaceFirst("Basic"
-                + " ", "");
+        final String encodedUserPassword = authCredentials.replaceFirst("Basic" + " ", "");
         String usernameAndPassword = null;
         try {
 
@@ -33,32 +32,32 @@ public class AuthenticationService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        final StringTokenizer tokenizer = new StringTokenizer(
-                usernameAndPassword, ":");
+        final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
         final String email = tokenizer.nextToken();
         final String password = tokenizer.nextToken();
-        
-        if(StringUtil.isBlank(email) || StringUtil.isBlank(password))
+
+        if (StringUtil.isBlank(email) || StringUtil.isBlank(password))
             return false;
         User userObject = findUserByEmail(email);
         System.out.println(userObject);
 
         boolean authenticationStatus = false;
 
-        if(userObject != null){
+        if (userObject != null) {
             return checkPassword(userObject.getPassword(), password);
         }
         return authenticationStatus;
     }
 
     public User findUserByEmail(final String email) {
-    	em.getTransaction().begin();
-    	User userObject = (User) em.createQuery("select u from User u where u.email = ?1")
-			    .setParameter(1, email).getSingleResult();
-    	em.getTransaction().commit();
-      return userObject;
+        em.getTransaction().begin();
+        User userObject = (User) em.createQuery("select u from User u where u.email = ?1").setParameter(1, email)
+                .getSingleResult();
+        em.getTransaction().commit();
+        return userObject;
     }
 
     private boolean checkPassword(String password, String password2) {
         return password.equals(password2);
-    }}
+    }
+}
