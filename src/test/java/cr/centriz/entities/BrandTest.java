@@ -17,14 +17,14 @@ public class BrandTest {
     Brand apexBrand = new Brand();
     Brand ceroStressBrand = new Brand();
     Brand rentingBrand = new Brand();
-    
+
     @Before
-    public void createTestBrand(){
+    public void createTestBrand() {
         budgetBrand.setName("Budget");
         apexBrand.setName("Apex");
         ceroStressBrand.setName("Cero Stress");
         rentingBrand.setName("Renting");
-        
+
         em.getTransaction().begin();
         em.persist(budgetBrand);
         em.persist(apexBrand);
@@ -42,7 +42,7 @@ public class BrandTest {
     }
 
     @After
-    public void deleteTestUsers(){
+    public void deleteTestUsers() {
         em.getTransaction().begin();
         em.remove(budgetBrand);
         em.remove(apexBrand);
