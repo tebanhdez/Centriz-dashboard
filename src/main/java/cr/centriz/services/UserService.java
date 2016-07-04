@@ -20,12 +20,12 @@ public class UserService {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
     EntityManager em = emf.createEntityManager();
 
-    public Response createUser(UserObjectData userObjectData) {
+    public Response createUser(UserObjectData objectData) {
         User user = new User();
-        user.setEmail(userObjectData.getEmail());
-        user.setPassword(userObjectData.getPassword());
-        user.setFullName(userObjectData.getFullName());
-        user.setRole(em.find(UserRole.class, userObjectData.getUserRoleId()));
+        user.setEmail(objectData.getEmail());
+        user.setPassword(objectData.getPassword());
+        user.setFullName(objectData.getFullName());
+        user.setRole(em.find(UserRole.class, objectData.getUserRoleId()));
         try {
             em.getTransaction().begin();
             em.persist(user);
@@ -57,12 +57,12 @@ public class UserService {
         return userObjectData;
     }
 
-    public Response updateUser(UserObjectData userObjectData) {
+    public Response updateUser(UserObjectData objectData) {
         User user = new User();
-        user.setEmail(userObjectData.getEmail());
-        user.setPassword(userObjectData.getPassword());
-        user.setFullName(userObjectData.getFullName());
-        user.setRole(em.find(UserRole.class, userObjectData.getUserRoleId()));
+        user.setEmail(objectData.getEmail());
+        user.setPassword(objectData.getPassword());
+        user.setFullName(objectData.getFullName());
+        user.setRole(em.find(UserRole.class, objectData.getUserRoleId()));
         try {
             em.getTransaction().begin();
             em.persist(user);

@@ -12,33 +12,33 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NoContentException;
 import javax.ws.rs.core.Response;
 
-import cr.centriz.services.UserService;
-import cr.centriz.utils.UserObjectData;
+import cr.centriz.services.BrandService;
+import cr.centriz.utils.BrandObjectData;
 
-@Path("v1/user")
-public class UserResource {
+@Path("v1/brand")
+public class BrandResource {
     
-    UserService userService = new UserService();
+    BrandService brandService = new BrandService();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createUser(UserObjectData objectData) {
-        return userService.createUser(objectData);
+    public Response createBrand(BrandObjectData objectData) {
+        return brandService.createBrand(objectData);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    public UserObjectData getUserById(@PathParam("id") int id) throws NoContentException {
-        return userService.getSimplifiedUserById(id);
+    public BrandObjectData getUserById(@PathParam("id") int id) throws NoContentException {
+        return brandService.getSimplifiedBrandById(id);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateUser(UserObjectData objectData) {
-        return userService.updateUser(objectData);
+    public Response updateUser(BrandObjectData objectData) {
+        return brandService.updateBrand(objectData);
     }
 
     @DELETE
@@ -46,6 +46,6 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Response deleteUser(@PathParam("id") int id) {
-        return userService.deleteUserById(id);
+        return brandService.deleteBrandById(id);
     }
 }
