@@ -9,35 +9,35 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ZoneTest {
+public class KPITest {
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
     EntityManager em = emf.createEntityManager();
-    Brand sanJose = new Brand();
-    Brand liberia = new Brand();
+    KPI ebidtaBRAC = new KPI();
 
     @Before
     public void createTestBrand() {
-        sanJose.setName("San Jose");
-        liberia.setName("Liberia");
+
+        ebidtaBRAC.setZone("San Jose");
+        ebidtaBRAC.setBrand("Budget");
+        ebidtaBRAC.setScope("Financiera");
+        ebidtaBRAC.setPrimaryKPI("EBIDTA");
+        ebidtaBRAC.setSecondaryKPI("Ebidta BRAC");
 
         em.getTransaction().begin();
-        em.persist(sanJose);
-        em.persist(liberia);
+        em.persist(ebidtaBRAC);
         em.getTransaction().commit();
     }
 
     @Test
     public void testCreateCompanyAdminUser() {
-        Assert.assertNotNull("Zone not found", sanJose);
-        Assert.assertNotNull("Zone not found", liberia);
+        Assert.assertNotNull("KPI not found", ebidtaBRAC);
     }
 
     @After
     public void deleteTestUsers() {
         em.getTransaction().begin();
-        em.remove(sanJose);
-        em.remove(liberia);
+        em.remove(ebidtaBRAC);
         em.getTransaction().commit();
     }
 }
