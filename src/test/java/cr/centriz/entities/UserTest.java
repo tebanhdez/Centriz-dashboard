@@ -1,30 +1,52 @@
 package cr.centriz.entities;
 
-import static org.junit.Assert.assertEquals;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import cr.centriz.utils.HibernateUtil;
 
 public class UserTest {
 
-	@Test
-	public void createUser() {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		Transaction transaction = session.beginTransaction();
-		User user = new User();
-		user.setCreationDate(new Date());
-		user.setFullName("Test User");
-		user.setEmail("test@test.com");
-		user.setPassword("Pernix1.");
-		session.save(user);
-		transaction.commit();
-	}
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
+    User adminUser = new User();
+    UserRole adminUserRole = new UserRole();
+
+    @Before
+    public void createTestUser() {
+
+        adminUserRole.setName(DefaultUserRole.ADMIN.getName());
+        adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
+
+        adminUser.setFullName("Test user");
+        adminUser.setEmail("test@centriz.cr");
+        adminUser.setPassword("centriz");
+        adminUser.setRole(adminUserRole);
+
+        em.getTransaction().begin();
+        em.persist(adminUserRole);
+        em.persist(adminUser);
+        em.getTransaction().commit();
+    }
+
+    @Test
+    public void testCreateCompanyAdminUser() {
+        Assert.assertNotNull("Admin user role not found", adminUserRole);
+        Assert.assertNotNull("Admin user not found", adminUser);
+
+        Assert.assertTrue("Admin user role invalid",
+                adminUser.getRole().getName().compareToIgnoreCase(DefaultUserRole.ADMIN.getName()) == 0);
+    }
+
+    @After
+    public void deleteTestUsers() {
+        em.getTransaction().begin();
+        em.remove(adminUser);
+        em.remove(adminUserRole);
+        em.getTransaction().commit();
+    }
 }
