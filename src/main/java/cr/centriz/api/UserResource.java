@@ -1,8 +1,5 @@
 package cr.centriz.api;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,9 +17,7 @@ import cr.centriz.utils.UserObjectData;
 
 @Path("v1/user")
 public class UserResource {
-
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-    EntityManager em = emf.createEntityManager();
+    
     UserService userService = new UserService();
 
     @POST
