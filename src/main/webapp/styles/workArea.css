@@ -65,5 +65,7 @@
    padding: 5px 5px 5px 5px;
    width: 10em;
    word-wrap: break-word;
-   margin: 1em 1em 1em 1em;
+}
+.size-process-bar{
+	margin-top: 0.5em !important;
 }

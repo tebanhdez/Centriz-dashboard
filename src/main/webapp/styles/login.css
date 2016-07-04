@@ -1,24 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Tenor+Sans);
-
-html {
-	font-family: "Tenor Sans", sans-serif;
-}
-
-.login {
-	padding-top: 50px;
-	width: 450px;
-}
-
 .login-bg {
 	height: 100vh;
 	background: #D7D6D8;
 }
-
-.login-heading {
-	font: 1.8em/48px "Tenor Sans", sans-serif;
-	color: white;
-}
-
 .input-txt {
 	width: 100%;
 	padding: 15px 10px;
@@ -28,23 +11,6 @@ html {
 	border-radius: 0px;
 	margin: 2px;
 }
-
-.input-txt:-moz-placeholder {
-	color: #999899;
-}
-
-.input-txt:-ms-input-placeholder {
-	color: #999899;
-}
-
-.input-txt::-webkit-input-placeholder {
-	color: #999899;
-}
-
-.input-txt:focus {
-	background-color: #FFFFFF;
-}
-
 .submit-btn {
 	padding: 15px;
 	border: none;
@@ -55,20 +21,6 @@ html {
 	font-size: 1em;
 	margin-top: 10px;
 }
-
-.text-right {
-	float: right;
-}
-
-.lnk {
-	font-size: .8em;
-	line-height: 3em;
-	color: #4f4b4e;
-	text-decoration: none;
-	font-size: 1em;
-}
-
 .logo-login {
 	width: 75%;
 }
-
