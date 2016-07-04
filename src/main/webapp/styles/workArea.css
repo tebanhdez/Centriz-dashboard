@@ -17,7 +17,9 @@
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
-
+.with-padding{
+	padding: 1em 3em 1em 3em !important;
+}
 .white-bg{
 	background-color: #ffffff !important;
 	min-height: 2em !important;
@@ -48,4 +50,20 @@
 }
 .space{
 	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+.transparent-button {
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border-color: #ffffff;
+   border-radius: 5px;
+   cursor:pointer;
+   overflow: hidden;
+   outline:none;
+   font-size: 1em;
+   color: #ffffff;
+   padding: 5px 5px 5px 5px;
+   width: 10em;
+   word-wrap: break-word;
+   margin: 1em 1em 1em 1em;
 }
