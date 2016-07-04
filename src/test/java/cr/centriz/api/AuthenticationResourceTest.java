@@ -26,59 +26,59 @@ import cr.centriz.entities.User;
 import cr.centriz.entities.UserRole;
 import cr.centriz.utils.LoginRequest;
 
-public class AuthenticationResourceTest extends JerseyTest {
+public class AuthenticationResourceTest extends JerseyTest{
 
-	@Override
-	protected Application configure() {
-		return new ResourceConfig(AuthenticationResource.class);
-	}
+    @Override
+    protected Application configure() {
+        return new ResourceConfig(AuthenticationResource.class);      
+    }   
+    
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
+    User adminUser = new User();
+    UserRole adminUserRole = new UserRole();
+    
+    @Before
+    public void createTestUser(){
+        
+        adminUserRole.setName(DefaultUserRole.ADMIN.getName());
+        adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-	EntityManager em = emf.createEntityManager();
-	User adminUser = new User();
-	UserRole adminUserRole = new UserRole();
+        adminUser.setFullName("Test user");
+        adminUser.setEmail("test@centriz.cr");
+        adminUser.setPassword("centriz");
+        adminUser.setRole(adminUserRole);
+        
+        em.getTransaction().begin();
+        em.persist(adminUserRole);
+        em.persist(adminUser);
+        em.getTransaction().commit();
+    }
 
-	@Before
-	public void createTestUser() {
+    @Test
+    public void testCreateCompanyAdminUser() {
+        Assert.assertNotNull("Admin user role not found", adminUserRole);
+        Assert.assertNotNull("Admin user not found", adminUser);
 
-		adminUserRole.setName(DefaultUserRole.ADMIN.getName());
-		adminUserRole.setDescription(DefaultUserRole.ADMIN.getDescription());
+        LoginRequest credentials = new LoginRequest();
+        credentials.setEmail(adminUser.getEmail());
+        credentials.setPassword(adminUser.getPassword());
+        
+        final Response confirmationResponse = target().path("v1/auth/login").request().post(Entity.json(credentials));
+        assertEquals(200, confirmationResponse.getStatus());
 
-		adminUser.setFullName("Test user");
-		adminUser.setEmail("test@centriz.cr");
-		adminUser.setPassword("centriz");
-		adminUser.setRole(adminUserRole);
+        String jsonResponseString = confirmationResponse.readEntity(String.class);
+        JsonReader jsonReader = Json.createReader(new StringReader(jsonResponseString));
+        JsonObject object = jsonReader.readObject();
+        jsonReader.close();
+        Assert.assertEquals("OK", object.getString("status"));
+        Assert.assertEquals(DefaultUserRole.ADMIN.getName(), object.getString("RoleIdentifier"));
+    }
 
-		em.getTransaction().begin();
-		em.persist(adminUserRole);
-		em.persist(adminUser);
-		em.getTransaction().commit();
-	}
-
-	@Test
-	public void testCreateCompanyAdminUser() {
-		Assert.assertNotNull("Admin user role not found", adminUserRole);
-		Assert.assertNotNull("Admin user not found", adminUser);
-
-		LoginRequest credentials = new LoginRequest();
-		credentials.setEmail(adminUser.getEmail());
-		credentials.setPassword(adminUser.getPassword());
-
-		final Response confirmationResponse = target().path("v1/auth/login").request().post(Entity.json(credentials));
-		assertEquals(200, confirmationResponse.getStatus());
-
-		String jsonResponseString = confirmationResponse.readEntity(String.class);
-		JsonReader jsonReader = Json.createReader(new StringReader(jsonResponseString));
-		JsonObject object = jsonReader.readObject();
-		jsonReader.close();
-		Assert.assertEquals("OK", object.getString("status"));
-		Assert.assertEquals(DefaultUserRole.ADMIN.getName(), object.getString("RoleIdentifier"));
-	}
-
-	@After
-	public void deleteTestUsers() {
-		em.remove(adminUser);
-		em.remove(adminUserRole);
-
-	}
+    @After
+    public void deleteTestUsers(){
+        em.remove(adminUser);
+        em.remove(adminUserRole);
+        
+    }
 }

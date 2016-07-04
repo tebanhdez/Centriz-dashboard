@@ -15,48 +15,49 @@ import cr.centriz.entities.User;
 
 public class AuthenticationService {
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-	EntityManager em = emf.createEntityManager();
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
 
-	public boolean authenticate(String authCredentials) {
+    public boolean authenticate(String authCredentials) {
 
-		if (null == authCredentials)
-			return false;
+        if (null == authCredentials)
+            return false;
 
-		final String encodedUserPassword = authCredentials.replaceFirst("Basic" + " ", "");
-		String usernameAndPassword = null;
-		try {
+        final String encodedUserPassword = authCredentials.replaceFirst("Basic" + " ", "");
+        String usernameAndPassword = null;
+        try {
 
-			byte[] decodedBytes = BaseEncoding.base64().decode(encodedUserPassword);
-			usernameAndPassword = new String(decodedBytes, "UTF-8");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
-		final String email = tokenizer.nextToken();
-		final String password = tokenizer.nextToken();
+            byte[] decodedBytes = BaseEncoding.base64().decode(encodedUserPassword);
+            usernameAndPassword = new String(decodedBytes, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
+        final String email = tokenizer.nextToken();
+        final String password = tokenizer.nextToken();
 
-		if (StringUtil.isBlank(email) || StringUtil.isBlank(password))
-			return false;
-		User userObject = findUserByEmail(email);
+        if (StringUtil.isBlank(email) || StringUtil.isBlank(password))
+            return false;
+        User userObject = findUserByEmail(email);
+        System.out.println(userObject);
 
-		boolean authenticationStatus = false;
+        boolean authenticationStatus = false;
 
-		if (userObject != null) {
-			return checkPassword(userObject.getPassword(), password);
-		}
-		return authenticationStatus;
-	}
+        if (userObject != null) {
+            return checkPassword(userObject.getPassword(), password);
+        }
+        return authenticationStatus;
+    }
 
-	public User findUserByEmail(final String email) {
-		em.getTransaction().begin();
-		User userObject = (User) em.createQuery("select u from User u where u.email = ?1").setParameter(1, email)
-				.getSingleResult();
-		em.getTransaction().commit();
-		return userObject;
-	}
+    public User findUserByEmail(final String email) {
+        em.getTransaction().begin();
+        User userObject = (User) em.createQuery("select u from User u where u.email = ?1").setParameter(1, email)
+                .getSingleResult();
+        em.getTransaction().commit();
+        return userObject;
+    }
 
-	private boolean checkPassword(String password, String password2) {
-		return password.equals(password2);
-	}
+    private boolean checkPassword(String password, String password2) {
+        return password.equals(password2);
+    }
 }

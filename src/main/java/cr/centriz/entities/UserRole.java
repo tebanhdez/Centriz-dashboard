@@ -69,6 +69,7 @@ public class UserRole {
         this.users = users;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;

@@ -20,24 +20,24 @@ public class User {
     public User() {
     }
 
-    public User(int userId) {
-        setId(userId);
+    public User(int id) {
+        setId(id);
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private int userId;
+    @Column(name = "id")
+    private int id;
 
     public int getId() {
-        return userId;
+        return id;
     }
 
-    public void setId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    @Column(name = "full_name")
+    @Column(name = "person_name", nullable = false)
     private String fullName;
 
     public String getFullName() {
@@ -93,6 +93,7 @@ public class User {
         this.role = role;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
@@ -100,7 +101,7 @@ public class User {
             return false;
 
         User user = (User) o;
-        if (userId != user.userId)
+        if (id != user.id)
             return false;
         return true;
     }
