@@ -5,6 +5,7 @@ INSERT INTO public."userrole"(user_role_id, name, description) VALUES (12, 'WRIT
 
 -- Create users
 INSERT INTO public."user"(email, person_name, password, user_role_id) VALUES ('test@centriz.cr', 'Admin user', 'centriz', 10);
+INSERT INTO public."user"(email, person_name, password, user_role_id) VALUES ('test@centriz.cr', 'Admin user', 'centriz', 10);
 
 -- Create brands
 INSERT INTO public."brand"(name) VALUES ('Budget');
