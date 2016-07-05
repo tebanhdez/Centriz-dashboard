@@ -1,6 +1,7 @@
 package cr.centriz.entities;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -48,7 +50,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     public String getEmail() {
@@ -91,6 +93,17 @@ public class User {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    @OneToMany(mappedBy = "user")
+    private Set<KPI> kpis;
+
+    public Set<KPI> getKpis() {
+        return kpis;
+    }
+
+    public void setKpis(Set<KPI> kpis) {
+        this.kpis = kpis;
     }
 
     @Override
