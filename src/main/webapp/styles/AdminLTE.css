@@ -96,8 +96,8 @@ body {
 .content-wrapper,
 .right-side {
   min-height: 100%;
-  background-color: #ecf0f5;
   z-index: 800;
+  padding-top: 2.5em;
 }
 .main-footer {
   background: #fff;
@@ -144,11 +144,9 @@ body.hold-transition .main-header .logo {
 /* Content */
 .content {
   min-height: 250px;
-  padding: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+
 }
 /* H1 - H6 font */
 h1,
@@ -326,8 +324,6 @@ a:focus {
 .content-header > .breadcrumb {
   float: right;
   background: transparent;
-  margin-top: 0;
-  margin-bottom: 0;
   font-size: 12px;
   padding: 7px 5px;
   position: absolute;
@@ -422,6 +418,7 @@ a:focus {
   min-height: 100%;
   width: 230px;
   z-index: 810;
+  position: fixed;
   -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
@@ -688,7 +685,7 @@ a:focus {
 .control-sidebar-bg,
 .control-sidebar {
   top: 0;
-  right: -180px;
+  right: -230px;
   width: 230px;
   -webkit-transition: right 0.3s ease-in-out;
   -o-transition: right 0.3s ease-in-out;
@@ -1353,7 +1350,7 @@ a:focus {
 }
 .progress.xxs,
 .progress-xxs,
-.progress.xxs .progress-bar,
+.progress.xxs .progress-ba
 .progress-xxs .progress-bar {
   border-radius: 1px;
 }
@@ -1424,7 +1421,7 @@ a:focus {
 }
 .progress-bar-yellow,
 .progress-bar-warning {
-  background-color: #f39c12;
+  background-color: #F4CF14;
 }
 .progress-striped .progress-bar-yellow,
 .progress-striped .progress-bar-warning {
@@ -1525,13 +1522,7 @@ a:focus {
  * --------------
  */
 .box {
-  position: relative;
-  border-radius: 3px;
-  background: #ffffff;
-  border-top: 3px solid #d2d6de;
-  margin-bottom: 20px;
-  width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: transparent;
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
@@ -1550,6 +1541,7 @@ a:focus {
 }
 .box.box-default {
   border-top-color: #d2d6de;
+  margin: 3em;
 }
 .box.collapsed-box .box-body,
 .box.collapsed-box .box-footer {
@@ -3200,7 +3192,6 @@ table.text-center th {
 .register-logo {
   font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
   font-weight: 300;
 }
 .login-logo a,
@@ -3225,8 +3216,6 @@ table.text-center th {
 }
 .login-box-body,
 .register-box-body {
-  background: #fff;
-  padding: 20px;
   border-top: 0;
   color: #666;
 }
@@ -4400,7 +4389,7 @@ table.text-center th {
 .alert-warning,
 .label-warning,
 .modal-warning .modal-body {
-  background-color: #f39c12 !important;
+  background-color: #F4CF14 !important;
 }
 .bg-aqua,
 .callout.callout-info,

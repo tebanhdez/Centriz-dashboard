@@ -9,14 +9,15 @@
  * Main module of the application.
  */
   // declare modules
-angular
-  .module('centrizApp', [
+angular.module('partials', []);
+angular.module('centrizApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'partials'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/dashboard"); //$urlRouterProvider.otherwise("/login");  por default a login
