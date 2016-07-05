@@ -23,6 +23,7 @@ public class KPITest {
         ebidtaBRAC.setScope("Financiera");
         ebidtaBRAC.setPrimaryKPI("EBIDTA");
         ebidtaBRAC.setSecondaryKPI("Ebidta BRAC");
+        ebidtaBRAC.setUser(em.find(User.class, 1));
 
         em.getTransaction().begin();
         em.persist(ebidtaBRAC);
