@@ -17,7 +17,7 @@ import cr.centriz.utils.BrandObjectData;
 
 @Path("v1/brand")
 public class BrandResource {
-    
+
     BrandService brandService = new BrandService();
 
     @POST

@@ -34,6 +34,8 @@ public class BrandService {
 
     private Brand getBrandById(int id) {
         em.getTransaction().begin();
+        em.getTransaction().commit();
+        em.getTransaction().begin();
         Brand brand = em.find(Brand.class, id);
         em.getTransaction().commit();
         return brand;

@@ -11,7 +11,6 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import cr.centriz.utils.BrandObjectData;
@@ -36,25 +35,24 @@ public class BrandResourceTest extends JerseyTest {
         assertEquals(200, confirmationResponse.getStatus());
     }
 
-    @Ignore
-    @Test
-    public void getBrandResourceTest() {
-        BrandObjectData brand = target().path("v1/brand/1").request().get(BrandObjectData.class);
-        Assert.assertNotNull("Brand not found", brand);
-    }
-
-    @Ignore
     @Test
     public void updateBrandResourceTest() {
         budget.setName("Budget name updated");
         final Response confirmationResponse = target().path("v1/brand").request().put(Entity.json(budget));
         assertEquals(200, confirmationResponse.getStatus());
     }
-    
+
+    @Test
+    public void getBrandResourceTest() {
+        BrandObjectData brand = target().path("v1/brand/1").request().get(BrandObjectData.class);
+        Assert.assertNotNull("Brand not found", brand);
+    }
+
     @After
     public void deleteBrandResourceTest() {
-        final Response confirmationResponse = target().path("v1/brand/1").request().delete();
-        assertEquals(200, confirmationResponse.getStatus());
+        Response confirmationResponse = target().path("v1/brand/1").request().delete();
+        Assert.assertEquals(200, confirmationResponse.getStatus());
+        ;
     }
 
 }
