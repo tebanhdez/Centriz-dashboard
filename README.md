@@ -25,13 +25,13 @@ The application is a dashboard where they can be displayed graphically and order
 
 ## Build the project
 ### Compile java project
-Open the terminal
-Go to the project folder `cd path/to/Centriz-dashboard`
-Execute 'mvn clean install’
+Open the terminal  
+Go to the project folder `cd path/to/Centriz-dashboard`  
+Execute `mvn clean install`
 
 ### Add AngularJS dependencies
-Go to webapp folder `cd path/to/Centriz-dashboard/src/main`
-Execute `npm install`
+Go to webapp folder `cd path/to/Centriz-dashboard/src/main`  
+Execute `npm install`  
 Execute `bower install`
 
 ---
