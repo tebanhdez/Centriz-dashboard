@@ -6,16 +6,33 @@ The application is a dashboard where they can be displayed graphically and order
 1. Maven 10.10.5 
 2. Bower 1.7.7
 3. Java 1.8
-4. Eclipse Mars
+4. Postgres
+5. Heroku toolbet
 
-## Setup dev environment
-1. Clone the repository git clone https://github.com/tebanhdez/Centriz-dashboard
-2. Go to cd /path/to/project
-3. Install maven dependencies mvn clean install
-4. Go to cd pathOfProject/src/main
-5. Install bower dependencies bower install
-6. Open in eclipse
-7. Clic on run and select tomcat server
+# Setup
+
+## Create database in postgres
+`CREATE DATABASE centriz;`
+
+## Create user
+`CREATE USER centriz PASSWORD 'centriz';`
+
+## Set privileges
+`GRANT ALL PRIVILEGES ON DATABASE centriz to centriz;`
+
+## Change database owner
+`ALTER DATABASE centriz OWNER TO centriz;`
+
+## Build the project
+### Compile java project
+Open the terminal
+Go to the project folder `cd path/to/Centriz-dashboard`
+Execute 'mvn clean install’
+
+### Add AngularJS dependencies
+Go to webapp folder `cd path/to/Centriz-dashboard/src/main`
+Execute `npm install`
+Execute `bower install`
 
 ---
 #### [www.Pernix-Solutions.com](http://www.pernix-solutions.com)
