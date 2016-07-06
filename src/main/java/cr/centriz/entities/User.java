@@ -50,7 +50,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    @Column(name = "email", nullable = false, unique=true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     public String getEmail() {
