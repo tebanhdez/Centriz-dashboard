@@ -50,7 +50,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
     public String getEmail() {
@@ -94,7 +94,7 @@ public class User {
     public void setRole(UserRole role) {
         this.role = role;
     }
-
+    
     @OneToMany(mappedBy = "user")
     private Set<KPI> kpis;
 
