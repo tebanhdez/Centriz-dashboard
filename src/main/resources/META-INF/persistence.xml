@@ -5,7 +5,6 @@
              version="2.1">
   <persistence-unit name="centrizManager" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>Customer</class>
     <properties>
      	<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
         <property name="hibernate.connection.password" value="centriz" />
