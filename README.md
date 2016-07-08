@@ -6,7 +6,7 @@ The application is a dashboard where they can be displayed graphically and order
 1. Maven 10.10.5 
 2. Bower 1.7.7
 3. Java 1.8
-4. Postgres
+4. Postgres 9.5
 5. Heroku toolbet
 
 # Setup
@@ -32,7 +32,16 @@ Execute `mvn clean install`
 ### Add AngularJS dependencies
 Go to webapp folder `cd path/to/Centriz-dashboard/src/main`  
 Execute `npm install`  
-Execute `bower install`
+Execute `bower install`  
+
+# Run the application
+## Run in unix systems
+Excecute `heroku local`  
+Open your browser and go to http://localhost:5000
+
+## Run in windows
+Excecute `heroku local web -f Procfile.windows`  
+Open your browser and go to http://localhost:5000
 
 ---
 #### [www.Pernix-Solutions.com](http://www.pernix-solutions.com)
