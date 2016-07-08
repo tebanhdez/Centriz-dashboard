@@ -7,6 +7,8 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
 
+import cr.centriz.entities.data.Data;
+
 
 public class MetricResourceTest extends JerseyTest {
 
@@ -17,8 +19,7 @@ public class MetricResourceTest extends JerseyTest {
 
     @Test
     public void getBrandResourceTest() {
-        String json = target().path("v1/metric/20161001/20160201").request().get(String.class);
-        System.out.println(json);
-        Assert.assertNotNull("json not found", json);
+        String metric = target().path("v1/metric/20161001/20160201").request().get(String.class);
+        Assert.assertNotNull("Metric not found", metric);
     };
 }
