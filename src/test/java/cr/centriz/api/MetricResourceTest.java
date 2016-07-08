@@ -7,8 +7,6 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import cr.centriz.entities.data.Data;
-
 
 public class MetricResourceTest extends JerseyTest {
 

@@ -35,8 +35,14 @@ public class MetricService {
         metric.addValue(new Value(sdf.parse("20160101"), 100));
         metric.addValue(new Value(sdf.parse("20160102"), 100));
         metric.addValue(new Value(sdf.parse("20160103"), 100));
-
-        Level process = new Level("Renting", new Level("Inventarios", new Level("Procesos", metric)));
+        
+        Level renting = new Level("Renting");
+        renting.addLevel(metric);
+        Level inventory = new Level("Inventarios");
+        inventory.addLevel(renting);
+        Level process = new Level("Procesos");
+        process.addLevel(inventory);
+        
         data.addLevel(process);
 
         return new Gson().toJson(data);

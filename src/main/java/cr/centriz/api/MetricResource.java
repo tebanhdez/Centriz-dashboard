@@ -8,7 +8,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import cr.centriz.entities.data.Data;
 import cr.centriz.services.MetricService;
 
 @Path("v1/metric")

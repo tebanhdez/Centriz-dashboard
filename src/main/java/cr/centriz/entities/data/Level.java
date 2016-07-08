@@ -1,15 +1,17 @@
 package cr.centriz.entities.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Level {
 
     private String name;
-    private Object level;
+    private List<Object> levels = new ArrayList<Object>();
 
     public Level() {}
     
-    public Level(String name, Object level) {
+    public Level(String name) {
         this.name = name;
-        this.level = level;
     }
 
     public String getName() {
@@ -20,11 +22,15 @@ public class Level {
         this.name = name;
     }
 
-    public Object getlevel() {
-        return level;
+    public List<Object> getLevels() {
+        return levels;
     }
 
-    public void setlevel(Object level) {
-        this.level = level;
+    public void setLevels(List<Object> levels) {
+        this.levels = levels;
+    }
+    
+    public void addLevel(Object level) {
+        this.levels.add(level);
     }
 }
