@@ -10,6 +10,7 @@
  */
   // declare modules
 angular.module('partials', []);
+angular.module('KPI', []);
 angular.module('centrizApp', [
     'ngAnimate',
     'ngCookies',
@@ -17,7 +18,9 @@ angular.module('centrizApp', [
     'ui.router',
     'ngSanitize',
     'ngTouch',
-    'partials'
+    'partials',
+    'KPI'
+
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/login"); //$urlRouterProvider.otherwise("/login");  por default a login

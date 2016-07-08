@@ -26,7 +26,7 @@ angular.module('partials')
 .directive('workArea', function() {
   return {
     restrict: 'E',
-    templateUrl: "views/partials/work-area.html"
+    templateUrl: "views/partials/work-areaAngular.html"
   }
 })
 
