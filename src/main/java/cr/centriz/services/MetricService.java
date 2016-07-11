@@ -42,7 +42,7 @@ public class MetricService {
         inventory.addLevel(renting);
         Level process = new Level("Procesos");
         process.addLevel(inventory);
-        
+
         data.addLevel(process);
 
         return new Gson().toJson(data);
