@@ -11,11 +11,10 @@
       .state('login', {
         url: '/login',
         templateUrl: 'app/dashboard/view.html',
-        controller: 'DashboardCtrl',
-        controllerAs: 'dashboard'
+        controller: 'DashboardController'
       });
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/login');
   }
 
 })();

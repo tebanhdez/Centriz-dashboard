@@ -3,10 +3,10 @@
 
   angular
     .module('centrizApp')
-    .controller('DashboardCtrl', DashboardCtrl);
+    .controller('DashboardController', DashboardController);
 
   /** @ngInject */
-  function DashboardCtrl($timeout, toastr) {
+  function DashboardController() {
     var vm = this;
 
   }

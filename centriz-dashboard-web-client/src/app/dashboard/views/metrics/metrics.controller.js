@@ -3,12 +3,12 @@
 
   angular
     .module('centrizApp')
-    .controller('MetricsCtrl', MetricsCtrl);
+    .controller('MetricsController', MetricsController);
 
-  MetricsCtrl.$inject = ['MetricService', 'UserDataService'];
+  MetricsController.$inject = ['MetricService'];
 
   /* @ngInject */
-  function MetricsCtrl(MetricService) {
+  function MetricsController(MetricService) {
     var vm = this;
 
     vm.data = {};

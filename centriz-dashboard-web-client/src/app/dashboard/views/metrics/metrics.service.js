@@ -16,7 +16,7 @@
 
       var request = {
         method: 'GET',
-        url: 'http://localhost:8080/metric/20160101/20161231',
+        url: 'http://localhost:8080/centriz-dashboard-web-service/rest/v1/metric/20160101/20161231',
         headers: {
           'Content-Type': 'application/json'
         }

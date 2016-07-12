@@ -7,6 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import cr.centriz.services.MetricService;
 
@@ -18,8 +19,8 @@ public class MetricResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{sd}/{ed}")
-    public String getMetrics(@PathParam("sd") String sd, @PathParam("ed") String ed) throws ParseException {
-        return metricService.getMetricsByDate(sd, ed);
+    public Response getMetrics(@PathParam("sd") String sd, @PathParam("ed") String ed) throws ParseException {
+        return Response.ok().entity(metricService.getMetricsByDate(sd, ed)).header("Access-Control-Allow-Origin", "*").build();
     }
 
 }

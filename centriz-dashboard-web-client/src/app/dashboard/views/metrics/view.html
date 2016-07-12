@@ -1,1 +1,9 @@
 <p>Metric view</p>
+<hr>
+
+<div ng-repeat="level in vm.data.levels">
+	<p>{{level.name}}</p>
+    <div ng-repeat="level in level.levels">
+        <button>{{level.name}}</button>
+    </div>
+</div>

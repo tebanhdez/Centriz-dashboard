@@ -10,12 +10,12 @@
     .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'app/dashboard/view.html',
-        controller: 'DashboardCtrl'
+        controller: 'DashboardController as vm'
       })
     .state('dashboard.metrics', {
       url: '/metrics',
       templateUrl: 'app/dashboard/views/metrics/view.html',
-      controller: 'MetricsCtrl as vm'
+      controller: 'MetricsController as vm'
     });
   }
 })();
