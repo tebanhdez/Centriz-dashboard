@@ -12,8 +12,46 @@
 	<packaging>war</packaging>
 	<name>centriz-dashboard-web-service Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+
+	<properties> 
+		<docker.registry.name></docker.registry.name><!-- leave empty for docker hub; use e.g. "localhost:5000/" for a local docker registry --> <docker.repository.name>${docker.registry.name}phauer/${project.artifactId}</docker.repository.name>
+	</properties>
 	<build>
 		<finalName>centriz-dashboard-web-service</finalName>
+      		<plugins>
+      			<plugin>
+					<groupId>org.jolokia</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>0.13.3</version>
+					<configuration>
+						<images>
+							<image>
+								<alias>${project.artifactId}</alias>
+								<name>${docker.repository.name}:${project.version}</name>
+								<build>
+									<from>java:8-jre</from>
+									<maintainer>phauer</maintainer>
+									<assembly>
+										<descriptor>docker-assembly.xml</descriptor>
+									</assembly>
+									<ports>
+										<port>8080</port>
+										<port>8081</port>
+									</ports>
+									<cmd>
+										<shell>java -jar \
+											/maven/${project.build.finalName}.jar server \
+											/maven/docker-config.yml</shell>
+									</cmd>
+								</build>
+								<run>
+								<!-- later more -->
+								</run>
+							</image>
+						</images>
+					</configuration>
+				</plugin>
+      		</plugins>
 	</build>
 	
 	<dependencies>

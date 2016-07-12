@@ -2,20 +2,20 @@
   'use strict';
 
   angular
-    .module('angularApp')
+    .module('centrizApp')
     .config(routerConfig);
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .state('login', {
+        url: '/login',
+        templateUrl: 'app/dashboard/view.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboard'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/dashboard');
   }
 
 })();

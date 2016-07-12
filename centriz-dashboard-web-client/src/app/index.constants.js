@@ -3,8 +3,6 @@
   'use strict';
 
   angular
-    .module('angularApp')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .module('centrizApp');
 
 })();

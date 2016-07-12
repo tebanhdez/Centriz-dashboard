@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('angularApp')
+    .module('centrizApp')
     .run(runBlock);
 
   /** @ngInject */

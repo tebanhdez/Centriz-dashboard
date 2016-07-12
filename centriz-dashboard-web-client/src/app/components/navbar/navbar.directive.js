@@ -2,31 +2,15 @@
   'use strict';
 
   angular
-    .module('angularApp')
-    .directive('acmeNavbar', acmeNavbar);
+    .module('centrizApp')
+    .directive('mainNavbar', mainNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function mainNavbar() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
+      templateUrl: 'app/components/navbar/view.html'
     };
-
     return directive;
-
-    /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
   }
-
 })();
