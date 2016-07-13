@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('centrizApp')
+    .module('centriz')
     .config(setupRoutes);
 
   function setupRoutes($stateProvider) {

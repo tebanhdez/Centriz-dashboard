@@ -45,12 +45,12 @@
         "module": null
       },
       "bootstrapComponents": {
-        "key": "ui-bootstrap",
-        "module": "ui.bootstrap"
+        "key": "noBootstrapComponents",
+        "module": null
       },
       "cssPreprocessor": {
-        "key": "less",
-        "extension": "less"
+        "key": "noCssPrepro",
+        "extension": "css"
       },
       "jsPreprocessor": {
         "key": "noJsPrepro",

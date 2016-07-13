@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('centrizApp')
+    .module('centriz')
     .controller('DashboardController', DashboardController);
 
   /** @ngInject */
