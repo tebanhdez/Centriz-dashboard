@@ -1,76 +1,47 @@
-# Centriz Dashboard
----
-The application is a dashboard where they can be displayed graphically and ordered the information collected.
+![enter image description here](http://www.ppc-essentials.com/wp-content/uploads/2014/03/Analytics-Dashboard-700x300.jpg)
 
-## Required software
-1. Maven 10.10.5 
-x
-2. Bower 1.7.7
-3. Java 1.8
-4. Postgres 9.5
-5. Heroku toolbet
+Centriz Dashboard
+===================
+A dashboard is "an easy to read, often single page, real-time user interface, showing a graphical presentation of the current status (snapshot) and historical trends of an organization’s or computer appliances key performance indicators to enable instantaneous and informed decisions to be made at a glance.
 
-## Setup the Development Environment
-  
-### Fix Permissions in Config Files
-sudo chown -R $USER:$GROUP ~/.npm
-sudo chown -R $USER:$GROUP ~/.config
+# Required software
+1. Java 1.8
+2. Maven 3.3.3
+3. Node 6.3.0
+4. NPM 3.10
+5. Bower 1.7.7
+6. PostgreSql 9.5
 
-### Install Node & npm
+#Setup the Linux Development Environment
 
-sudo apt-get purge nodejs npm
-sudo apt-get autoremove
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
+## Purge the Environment
+    sudo apt-get purge nodejs npm
+    sudo chown -R $USER:$GROUP ~/.npm
+    sudo chown -R $USER:$GROUP ~/.config
+    sudo apt-get autoremove
 
-m@Narasimha:~$ node -v
-v6.3.0
+## Install Node & NPM
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    sudo apt-get install -y nodejs
 
-m@Narasimha:~$ npm -v
-3.10.3
-
-### Run Client
-cd centriz-dashboard-web-client/
-npm install
-bower install
-gulp serve
-
-
-# Setup
-
-## Create database in postgres
-`CREATE DATABASE centriz;`
-
-## Create user
-`CREATE USER centriz PASSWORD 'centriz';`
-
-## Set privileges
-`GRANT ALL PRIVILEGES ON DATABASE centriz to centriz;`
-
-## Change database owner
-`ALTER DATABASE centriz OWNER TO centriz;`
-
-## Build the project
-### Compile java project
-Open the terminal  
-Go to the project folder `cd path/to/Centriz-dashboard`  
-Execute `mvn clean install`
-
-### Add AngularJS dependencies
-Go to webapp folder `cd path/to/Centriz-dashboard/src/main`  
-Execute `npm install`  
-Execute `bower install`  
-
+## Setup Database
+    CREATE DATABASE centriz;
+    CREATE USER centriz PASSWORD 'centriz';
+    GRANT ALL PRIVILEGES ON DATABASE centriz to centriz;
+    ALTER DATABASE centriz OWNER TO centriz;
 # Run the application
-## Run in unix systems
-Excecute `heroku local`  
-Open your browser and go to http://localhost:5000
+## Run Services
 
-## Run in windows
-Excecute `heroku local web -f Procfile.windows`  
-Open your browser and go to http://localhost:5000
+    mvn tomcat7:run
+
+## Run Client
+
+    cd centriz-dashboard-web-client/
+    npm install
+    bower install
+    gulp serve
 
 ---
-#### [www.Pernix-Solutions.com](http://www.pernix-solutions.com)
+[www.Pernix-Solutions.com](http://www.pernix-solutions.com)
 
 
