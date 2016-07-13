@@ -10,6 +10,7 @@
  */
   // declare modules
 angular.module('partials', []);
+angular.module('KPI', []);
 angular.module('centrizApp', [
     'ngAnimate',
     'ngCookies',
@@ -17,10 +18,12 @@ angular.module('centrizApp', [
     'ui.router',
     'ngSanitize',
     'ngTouch',
-    'partials'
+    'partials',
+    'KPI'
+
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/login"); //$urlRouterProvider.otherwise("/login");  por default a login
+    //$urlRouterProvider.otherwise("/kpi"); //$urlRouterProvider.otherwise("/login");  por default a login
     $stateProvider
       .state('login', {
         url: '/login',
@@ -30,6 +33,11 @@ angular.module('centrizApp', [
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'views/dashboard.html',
-        //controller: 'LoginCtrl'
+        /*controller: 'KPIctrl'*/
+      })
+      .state('dashboard.KPI', {
+        url: '/kpi',
+        templateUrl: 'views/partials/work-areaAngular.html',
+        controller: 'KPIctrl as vm'
       })
   });
