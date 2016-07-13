@@ -4,10 +4,37 @@ The application is a dashboard where they can be displayed graphically and order
 
 ## Required software
 1. Maven 10.10.5 
+x
 2. Bower 1.7.7
 3. Java 1.8
 4. Postgres 9.5
 5. Heroku toolbet
+
+## Setup the Development Environment
+  
+### Fix Permissions in Config Files
+sudo chown -R $USER:$GROUP ~/.npm
+sudo chown -R $USER:$GROUP ~/.config
+
+### Install Node & npm
+
+sudo apt-get purge nodejs npm
+sudo apt-get autoremove
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+m@Narasimha:~$ node -v
+v6.3.0
+
+m@Narasimha:~$ npm -v
+3.10.3
+
+### Run Client
+cd centriz-dashboard-web-client/
+npm install
+bower install
+gulp serve
+
 
 # Setup
 
@@ -45,3 +72,5 @@ Open your browser and go to http://localhost:5000
 
 ---
 #### [www.Pernix-Solutions.com](http://www.pernix-solutions.com)
+
+
