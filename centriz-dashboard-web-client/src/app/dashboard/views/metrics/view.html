@@ -1,6 +1,25 @@
-<div ng-repeat="level in vm.data.levels">
-	<p>{{level.name}}</p>
-    <div ng-repeat="level in level.levels">
-        <button>{{level.name}}</button>
-    </div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+   <ol class="breadcrumb">
+     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+     <li><a href="#">Examples</a></li>
+     <li class="active">Blank page</li>
+   </ol>
+ </section>
+ <div class="col-md-10 col-xs-10 col-md-offset-1 space">
+  <h2>
+    Balance Score Card
+  </h2>
+  <h4>
+    Seleccionar KPI Primario
+  </h4>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid" ng-repeat="level in vm.data.levels">
+      <levels></levels>
+</div>
+</section>
+</div>
 </div>

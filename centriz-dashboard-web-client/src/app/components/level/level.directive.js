@@ -3,13 +3,13 @@
 
   angular
   .module('centriz')
-  .directive('leftbar', leftbar);
+  .directive('level', level);
 
   /** @ngInject */
-  function leftbar() {
+  function level() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/leftbar/view.html'
+      templateUrl: 'app/components/level/view.html'
     };
 
     return directive;
