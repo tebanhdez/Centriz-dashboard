@@ -34,7 +34,7 @@ A dashboard is "an easy to read, often single page, real-time user interface, sh
 
     mvn tomcat7:run
 >**Note:**
->- The service output is accessible at this URL: [http://localhost:8080/centriz-dashboard-web-service/rest/v1/metric/20160101/20161231](http://localhost:8080/centriz-dashboard-web-service/rest/v1/metric/20160101/20161231)
+>- The service output is accessible at this URL: [http://localhost:9999/centriz-dashboard-web-service/rest/v1/metric/20160101/20161231](http://localhost:8080/centriz-dashboard-web-service/rest/v1/metric/20160101/20161231)
 
 ## Run Client
 
