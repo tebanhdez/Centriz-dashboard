@@ -10,8 +10,7 @@
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'app/login/view.html',
-        controller: 'LoginController as vm'
+        templateUrl: 'app/login/view.html'
       });
 
     $urlRouterProvider.otherwise('/login');
