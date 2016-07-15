@@ -10,6 +10,8 @@
   /* @ngInject */
   function MetricsController(MetricService) {
     var vm = this;
+    vm.showDiv = showDiv;
+    vm.isDivDisplayed = false;
 
     vm.data = {};
 
@@ -20,6 +22,10 @@
       .then(function(metricsData){
         vm.data = metricsData.data;
       })
+    }
+
+    function showDiv(){
+      vm.isDivDisplayed = !vm.isDivDisplayed;  
     }
   }
 })();

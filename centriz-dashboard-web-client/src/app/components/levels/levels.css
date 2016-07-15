@@ -1,0 +1,13 @@
+.levels-name {
+	font-size: 4em;
+}
+
+.rounded-border {
+	border-radius: 2em;
+}
+
+.level-padding {
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-bottom: 2em;
+}

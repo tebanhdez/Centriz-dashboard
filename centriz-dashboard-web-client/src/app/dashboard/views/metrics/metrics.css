@@ -1,6 +1,11 @@
 .financial{
     background-color: #3B7CB1;
 }
+
+.financial-first{
+    background-color: #3B7CB1;
+}
+
 .customers{
     background-color: #C80096;
     margin-top: 1.5em;
@@ -20,9 +25,12 @@
 .with-padding{
     padding: 1em 3em 1em 3em !important;
 }
+.gray-bg{
+    background-color: #d6d6d6 !important;
+}
+
 .white-bg{
     background-color: #ffffff !important;
-    min-height: 2em !important;
 }
 
 .center{
