@@ -13,7 +13,7 @@
         templateUrl: 'app/login/view.html'
       });
 
-    $urlRouterProvider.otherwise('/login');
+    //$urlRouterProvider.otherwise('/login');
   }
 
 })();
