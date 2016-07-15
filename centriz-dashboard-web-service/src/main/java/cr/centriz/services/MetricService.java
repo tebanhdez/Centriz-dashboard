@@ -8,6 +8,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.google.gson.Gson;
 
+import cr.centriz.dashboard.dao.clients.ClientsDaoHandler;
 import cr.centriz.entities.data.Data;
 import cr.centriz.entities.data.Header;
 import cr.centriz.entities.data.Level;
@@ -15,8 +16,9 @@ import cr.centriz.entities.data.Metric;
 import cr.centriz.entities.data.Tag;
 import cr.centriz.entities.data.Value;
 
-public class MetricService {
+public class MetricService<T> {
     private static final Log logger = LogFactory.getLog(MetricService.class);
+    private ClientsDaoHandler<T> clientsDao;
 
     public String getMetricsByDate(String sd, String ed) throws ParseException {
 
@@ -64,7 +66,11 @@ public class MetricService {
         Level satisfaccionClientes = new Level("Satisfaccion de clientes");
         clientes.addLevel(satisfaccionClientes);
         // KPI Secundarios
-        Metric satisfaccionGeneral = new Metric("Satisfaccion general budget", sdf.parse("20160101"), sdf.parse("20161231"));
+        // test
+        clientsDao = new ClientsDaoHandler<>();
+        clientsDao.run();
+        Metric satisfaccionGeneral = clientsDao.getMetric();//new Metric("Satisfaccion general budget", sdf.parse("20160101"), sdf.parse("20161231"));
+        clientsDao.clear();
         satisfaccionClientes.addLevel(satisfaccionGeneral);
         Metric satisfaccionRenting = new Metric("Satisfaccion de cliente de Renting", sdf.parse("20160101"), sdf.parse("20161231"));
         satisfaccionClientes.addLevel(satisfaccionRenting);
