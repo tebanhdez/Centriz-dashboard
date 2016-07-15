@@ -1,15 +1,6 @@
-<div class="row">
- <div class="col-md-12 without-padding"> 
-   <button class="transparent-button">{{level.name}}</button>
- </div>
-</div>
-<div class="row">
- <div class="col-md-7 without-padding">
-   <div class="progress progress-xs size-process-bar">
-     <div class="progress-bar progress-bar-success" style="width: 80%"></div>
-   </div>
- </div>
- <div class="col-md-4 without-padding">
-   <span class="badge bg-green">80%</span>
- </div>
+<div class="row center gray-bg rounded-border level-margin">
+	<h2>{{level.name}}</h2>
+	<div class="white-bg rounded-border level-margin col-md-5" ng-repeat="level in level.levels">
+		<div class="level-number">{{level.average}}</div><br>{{level.name}}
+	</div>
 </div>
