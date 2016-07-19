@@ -1,0 +1,1 @@
+INSERT INTO public.kpi(name, end_date, start_date, expected, real) VALUES ('init', '2016-01-01', '2016-01-01', 100.0, 100.0);

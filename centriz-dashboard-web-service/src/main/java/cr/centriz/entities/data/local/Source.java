@@ -1,10 +1,15 @@
 package cr.centriz.entities.data.local;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -54,7 +59,7 @@ public class Source {
     public void setLevel2(int level2) {
         this.level2 = level2;
     }
-    
+
     @Column(name = "location")
     private String location;
 
@@ -65,7 +70,7 @@ public class Source {
     public void setLocation(String location) {
         this.location = location;
     }
-    
+
     @Column(name = "source")
     private String source;
 
@@ -75,6 +80,16 @@ public class Source {
 
     public void setSource(String source) {
         this.source = source;
+    }
+
+    private String kpi;
+
+    public String getKpi() {
+        return kpi;
+    }
+
+    public void setKpi(String kpi) {
+        this.kpi = kpi;
     }
 
     @Override
