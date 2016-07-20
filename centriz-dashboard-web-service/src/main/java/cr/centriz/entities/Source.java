@@ -1,4 +1,4 @@
-package cr.centriz.entities.data.local;
+package cr.centriz.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

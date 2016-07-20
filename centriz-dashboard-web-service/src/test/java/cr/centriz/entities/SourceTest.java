@@ -1,4 +1,4 @@
-package cr.centriz.entities.data.local;
+package cr.centriz.entities;
 
 import java.text.ParseException;
 
@@ -11,6 +11,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import cr.centriz.entities.Source;
 
 public class SourceTest {
 
