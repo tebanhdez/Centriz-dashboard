@@ -6,14 +6,12 @@
     .config(routerConfig);
 
   /** @ngInject */
-  function routerConfig($stateProvider, $urlRouterProvider) {
+  function routerConfig($stateProvider ) {
     $stateProvider
       .state('login', {
         url: '/login',
         templateUrl: 'app/login/view.html'
       });
-
-    //$urlRouterProvider.otherwise('/login');
   }
 
 })();
