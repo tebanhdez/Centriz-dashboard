@@ -1,15 +1,10 @@
 package cr.centriz.entities.data.local;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -38,58 +33,26 @@ public class Source {
         this.id = id;
     }
 
-    @Column(name = "level_1")
-    private int level1;
+    @Column(name = "parent", nullable = true)
+    private int parent;
 
-    public int getLevel1() {
-        return level1;
+    public int getParent() {
+        return parent;
     }
 
-    public void setLevel1(int level1) {
-        this.level1 = level1;
+    public void setParent(int parent) {
+        this.parent = parent;
     }
 
-    @Column(name = "level_2")
-    private int level2;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    public int getLevel2() {
-        return level2;
+    public String getName() {
+        return name;
     }
 
-    public void setLevel2(int level2) {
-        this.level2 = level2;
-    }
-
-    @Column(name = "location")
-    private String location;
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    @Column(name = "source")
-    private String source;
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    private String kpi;
-
-    public String getKpi() {
-        return kpi;
-    }
-
-    public void setKpi(String kpi) {
-        this.kpi = kpi;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

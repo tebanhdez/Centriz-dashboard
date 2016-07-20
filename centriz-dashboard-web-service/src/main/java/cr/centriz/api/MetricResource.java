@@ -20,7 +20,7 @@ public class MetricResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{sd}/{ed}")
     public Response getMetrics(@PathParam("sd") String sd, @PathParam("ed") String ed) throws ParseException {
-        return Response.ok().entity(metricService.getMetricsByDate(sd, ed)).header("Access-Control-Allow-Origin", "*").build();
+        return Response.ok().entity(metricService.getMetricsByDate(sd, ed)).build();//getMetricsByDate(sd, ed)).header("Access-Control-Allow-Origin", "*").build();
     }
 
 }

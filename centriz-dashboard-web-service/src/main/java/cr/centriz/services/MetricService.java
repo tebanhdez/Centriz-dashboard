@@ -3,6 +3,10 @@ package cr.centriz.services;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -13,12 +17,12 @@ import cr.centriz.entities.data.Data;
 import cr.centriz.entities.data.Header;
 import cr.centriz.entities.data.Level;
 import cr.centriz.entities.data.Metric;
-import cr.centriz.entities.data.Tag;
-import cr.centriz.entities.data.Value;
 
 public class MetricService<T> {
     private static final Log logger = LogFactory.getLog(MetricService.class);
     private ClientsDaoHandler<T> clientsDao;
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
 
     public String getMetricsByDate(String sd, String ed) throws ParseException {
 
@@ -69,10 +73,15 @@ public class MetricService<T> {
         // test
         clientsDao = new ClientsDaoHandler<>();
         clientsDao.run();
-        Metric satisfaccionGeneral = clientsDao.getMetric();//new Metric("Satisfaccion general budget", sdf.parse("20160101"), sdf.parse("20161231"));
+        Metric satisfaccionGeneral = clientsDao.getMetric();// new
+                                                            // Metric("Satisfaccion
+                                                            // general budget",
+                                                            // sdf.parse("20160101"),
+                                                            // sdf.parse("20161231"));
         clientsDao.clear();
         satisfaccionClientes.addLevel(satisfaccionGeneral);
-        Metric satisfaccionRenting = new Metric("Satisfaccion de cliente de Renting", sdf.parse("20160101"), sdf.parse("20161231"));
+        Metric satisfaccionRenting = new Metric("Satisfaccion de cliente de Renting", sdf.parse("20160101"),
+                sdf.parse("20161231"));
         satisfaccionClientes.addLevel(satisfaccionRenting);
 
         // KPI Primario
@@ -121,9 +130,11 @@ public class MetricService<T> {
         Level cultura = new Level("Promover una cultura enfocada en valores");
         crecimientoAprendizaje.addLevel(RPUOperativo);
         // KPI Secundarios
-        Metric cumplimientoInduccion = new Metric("Cumplimiento de la induccion", sdf.parse("20160101"), sdf.parse("20161231"));
+        Metric cumplimientoInduccion = new Metric("Cumplimiento de la induccion", sdf.parse("20160101"),
+                sdf.parse("20161231"));
         cultura.addLevel(cumplimientoInduccion);
-        Metric cumplimientoCultura = new Metric("Cumplimiento plan de Cultura Organizacional Anual", sdf.parse("20160101"), sdf.parse("20161231"));
+        Metric cumplimientoCultura = new Metric("Cumplimiento plan de Cultura Organizacional Anual",
+                sdf.parse("20160101"), sdf.parse("20161231"));
         cultura.addLevel(cumplimientoCultura);
 
         data.addLevel(financiera);
@@ -133,4 +144,5 @@ public class MetricService<T> {
 
         return new Gson().toJson(data);
     }
+
 }
