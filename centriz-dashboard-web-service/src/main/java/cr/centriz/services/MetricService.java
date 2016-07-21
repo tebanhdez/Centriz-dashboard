@@ -141,7 +141,6 @@ public class MetricService<T> {
         data.addLevel(clientes);
         data.addLevel(procesos);
         data.addLevel(crecimientoAprendizaje);
-
         return new Gson().toJson(data);
     }
 
