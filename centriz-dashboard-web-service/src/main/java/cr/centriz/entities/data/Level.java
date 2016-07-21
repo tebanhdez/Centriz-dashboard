@@ -6,12 +6,15 @@ import java.util.List;
 public class Level {
 
     private String name;
-    private List<Object> levels = new ArrayList<Object>();
+    private String header;
+    private List<Level> levels = new ArrayList<Level>();
 
-    public Level() {}
-    
-    public Level(String name) {
+    public Level() {
+    }
+
+    public Level(String name, String header) {
         this.name = name;
+        this.header = header;
     }
 
     public String getName() {
@@ -22,15 +25,23 @@ public class Level {
         this.name = name;
     }
 
-    public List<Object> getLevels() {
+    public String getHeader() {
+        return header;
+    }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
+
+    public List<Level> getLevels() {
         return levels;
     }
 
-    public void setLevels(List<Object> levels) {
+    public void setLevels(List<Level> levels) {
         this.levels = levels;
     }
-    
-    public void addLevel(Object level) {
+
+    public void addLevel(Level level) {
         this.levels.add(level);
     }
 }

@@ -1,6 +1,7 @@
 package cr.centriz.dashboard.dao.levels;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,63 +11,21 @@ import javax.persistence.Persistence;
 import cr.centriz.dashboard.dao.HibernateDaoInterface;
 
 public class LevelsDaoHandler implements HibernateDaoInterface<Levels> {
-    private EntityManager em = getEntityManagerFactory().createEntityManager();
-
-    public EntityManager getEntityManager() {
-        return em;
-    }
-
-    public void openTransaction() {
-        getEntityManager().getTransaction().begin();
-    }
-
-    public void closeTransaction() {
-        getEntityManager().close();
-    }
-
-    public void commitCloseTransaction() {
-        getEntityManager().getTransaction().commit();
-        getEntityManager().close();
-    }
-
-    private static EntityManagerFactory getEntityManagerFactory() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-        return emf;
-    }
-
-    public void persist(Levels entity) {
-        getEntityManager().persist(entity);
-    }
-
-    public void update(Levels entity) {
-        getEntityManager().refresh(entity);
-    }
-
-    public void delete(Levels entity) {
-        getEntityManager().remove(entity);
-    }
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
+    EntityManager em = emf.createEntityManager();
 
     @SuppressWarnings("unchecked")
-    public List<Levels> findAll() {
-        List<Object> objectList = getEntityManager().createNativeQuery(buildQuery()).getResultList();
-        List<Levels> levels = new ArrayList<Levels>();
+    public List<String[]> findAll() {
+        List<Object> objectList = em.createNativeQuery(buildQuery()).getResultList();
+        List<String[]> levels = new ArrayList<String[]>();
+
         for (Object o : objectList) {
-            Object[] cols = (Object[]) o;
-            Levels tmpLevel = new Levels();
-            tmpLevel.setLevel1(cols[0].toString());
-            tmpLevel.setLevel2(cols[1].toString());
-            tmpLevel.setLevel3(cols[2].toString());
-            tmpLevel.setLevel4(cols[3].toString());
-            levels.add(tmpLevel);
+            Object[] objectArray = (Object[]) o;
+            String[] stringArray = Arrays.copyOf(objectArray, objectArray.length, String[].class);
+
+            levels.add(stringArray);
         }
         return levels;
-    }
-
-    public void deleteAll() {
-        List<Levels> entityList = findAll();
-        for (Levels entity : entityList) {
-            delete(entity);
-        }
     }
 
     private String buildQuery() {

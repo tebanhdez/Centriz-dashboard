@@ -24,7 +24,7 @@ public class ClientsDaoHandlerTest<T> {
     @Test
     public void testQuery() {
         clientsDao.run();
-        Assert.assertEquals(2274.0, clientsDao.getMetric().getAverage(), 0);
+        Assert.assertEquals(2313.0, clientsDao.getMetric().getAverage(), 0);
     }
 
     @After

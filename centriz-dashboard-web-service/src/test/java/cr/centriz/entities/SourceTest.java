@@ -28,6 +28,7 @@ public class SourceTest {
         em.getTransaction().begin();
         em.persist(source);
         em.getTransaction().commit();
+        em.close();
     }
 
     @Test
@@ -40,5 +41,6 @@ public class SourceTest {
         em.getTransaction().begin();
         em.remove(source);
         em.getTransaction().commit();
+        em.close();
     }
 }
