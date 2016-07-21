@@ -1,5 +1,6 @@
 package cr.centriz.dashboard.dao.levels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -47,7 +48,17 @@ public class LevelsDaoHandler implements HibernateDaoInterface<Levels> {
 
     @SuppressWarnings("unchecked")
     public List<Levels> findAll() {
-        List<Levels> levels = (List<Levels>)getEntityManager().createNativeQuery(buildQuery()).getResultList();
+        List<Object> objectList = getEntityManager().createNativeQuery(buildQuery()).getResultList();
+        List<Levels> levels = new ArrayList<Levels>();
+        for (Object o : objectList) {
+            Object[] cols = (Object[]) o;
+            Levels tmpLevel = new Levels();
+            tmpLevel.setLevel1(cols[0].toString());
+            tmpLevel.setLevel2(cols[1].toString());
+            tmpLevel.setLevel3(cols[2].toString());
+            tmpLevel.setLevel4(cols[3].toString());
+            levels.add(tmpLevel);
+        }
         return levels;
     }
 
