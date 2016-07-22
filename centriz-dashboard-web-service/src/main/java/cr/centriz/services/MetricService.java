@@ -12,22 +12,17 @@ import org.apache.commons.logging.LogFactory;
 
 import com.google.gson.Gson;
 
-import cr.centriz.dashboard.dao.levels.LevelsDaoHandler;
 import cr.centriz.entities.data.Level;
 
 public class MetricService {
     private static final Log logger = LogFactory.getLog(MetricService.class);
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
     EntityManager em = emf.createEntityManager();
-    private static LevelsDaoHandler levelsDao = new LevelsDaoHandler();
+    LevelsService levelsService = new LevelsService();
 
     public String getMetricsByDate(String sd, String ed) throws ParseException {
         
-        em.getTransaction().begin();
-        List<String[]> levels = levelsDao.findAll();
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
+        List<String[]> levels = levelsService.findAll();
         String[] previous = new String[] { "", "", "", "" };
         Level root = new Level("", "Organizacion");
         Level current = root;

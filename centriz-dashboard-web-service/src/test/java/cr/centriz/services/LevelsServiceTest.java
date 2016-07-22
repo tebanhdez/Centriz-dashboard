@@ -3,29 +3,21 @@ package cr.centriz.services;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.google.gson.Gson;
 
-import cr.centriz.dashboard.dao.levels.LevelsDaoHandler;
-import cr.centriz.entities.data.Data;
 import cr.centriz.entities.data.Level;
 
 public class LevelsServiceTest {
-    private static LevelsDaoHandler levelsDao = new LevelsDaoHandler();
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-    EntityManager em = emf.createEntityManager();
+    LevelsService levelsService = new LevelsService();
+    
     @Test
     public void levelsTest() {
-        em.getTransaction().begin();
-        List<String[]> levels = levelsDao.findAll();
-        em.getTransaction().commit();
-        em.close();
+        
+        List<String[]> levels = levelsService.findAll();
+        
         System.out.println(levels.size());
         String[] previous = new String[] { "", "", "", "" };
         Level root = new Level("", "Organizacion");

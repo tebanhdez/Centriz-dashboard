@@ -4,19 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import cr.centriz.dashboard.dao.HibernateDaoInterface;
+import cr.centriz.util.EntityManagerHelper;
 
 public class LevelsDaoHandler implements HibernateDaoInterface<Levels> {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("centrizManager");
-    EntityManager em = emf.createEntityManager();
 
     @SuppressWarnings("unchecked")
     public List<String[]> findAll() {
-        List<Object> objectList = em.createNativeQuery(buildQuery()).getResultList();
+        EntityManagerHelper.beginTransaction();
+        List<Object> objectList = EntityManagerHelper.getEntityManager().createNativeQuery(buildQuery()).getResultList();
+        EntityManagerHelper.commit();
         List<String[]> levels = new ArrayList<String[]>();
 
         for (Object o : objectList) {
